@@ -1,0 +1,44 @@
+# --- secrets / local config ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# --- Go ---
+bin/
+tmp/
+dist/
+coverage.out
+coverage.html
+*.test
+*.prof
+
+# --- Node / frontend ---
+node_modules/
+web/dist/
+web/.vite/
+web/coverage/
+web/test-results/
+web/playwright-report/
+web/blob-report/
+*.tsbuildinfo
+npm-debug.log*
+
+# --- generated at runtime (только в корне репозитория; internal/storage — исходный код) ---
+/uploads/
+/storage/
+/data/
+*.log
+
+# --- validation artifacts (reports are committed, raw runs are not) ---
+docs/validation/runs/
+
+# --- editors / OS ---
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# --- misc ---
+__pycache__/

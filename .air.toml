@@ -1,0 +1,18 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  cmd = "go build -o ./tmp/api.exe ./cmd/api"
+  bin = "./tmp/api.exe"
+  include_ext = ["go", "sql", "yaml", "yml", "toml"]
+  exclude_dir = ["tmp", "bin", "web", "assets", "docs", "node_modules", ".git"]
+  exclude_regex = ["_test\\.go$"]
+  delay = 800
+  kill_delay = "2s"
+  send_interrupt = false
+
+[log]
+  time = true
+
+[misc]
+  clean_on_exit = true

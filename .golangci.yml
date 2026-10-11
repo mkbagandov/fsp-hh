@@ -1,0 +1,53 @@
+version: "2"
+
+run:
+  timeout: 5m
+  tests: true
+
+linters:
+  default: standard
+  enable:
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - misspell
+    - gocritic
+    - revive
+    - bodyclose
+    - noctx
+    - errorlint
+    - gosec
+  settings:
+    misspell:
+      locale: US
+    revive:
+      rules:
+        - name: exported
+          disabled: true
+    gosec:
+      excludes:
+        - G404 # math/rand используется в генераторах заданий намеренно (детерминированность по seed)
+  exclusions:
+    generated: lax
+    paths:
+      - internal/storage/postgres/sqlcgen
+    rules:
+      # В тестах допустимы http.Get без контекста, непроверенный Body.Close и т. п.
+      - path: _test\.go
+        linters:
+          - noctx
+          - errcheck
+          - gosec
+          - bodyclose
+          - gocritic
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - fsp

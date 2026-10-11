@@ -1,0 +1,1925 @@
+# Справочник навыков для разбора резюме и вакансий и расчёта совпадения навыков.
+# Правится руками. Проверяется тестом TestSkillsYAML (internal/domain/refdata).
+#
+# code     — уникальный slug [a-z0-9_]+
+# name     — отображаемое имя
+# group    — один из groups
+# specs    — применимые специализации: backend|frontend|data_ml|devops|qa|security|common
+# topic    — (необязательно) тема теста, которой подтверждается навык
+# synonyms — строчные написания (латиница и кириллица), встречающиеся в резюме;
+#            сравнение идёт после нормализации (см. NormalizeTerm в skills.go)
+version: 1
+groups:
+  languages: Языки программирования
+  frameworks: Фреймворки и библиотеки
+  databases: Базы данных и хранилища
+  infra: Инфраструктура и облака
+  tools: Инструменты
+  practices: Практики и методологии
+  data: Данные и ML
+  security: Безопасность
+  testing: Тестирование
+  frontend: Фронтенд-технологии
+  mobile: Мобильная разработка
+  soft: Гибкие навыки
+skills:
+  # ---------------------------------------------------------------------------
+  # Языки программирования
+  # ---------------------------------------------------------------------------
+  - code: go
+    name: Go
+    group: languages
+    specs: [backend, devops]
+    topic: concurrency
+    synonyms: [golang, го, голанг, go lang]
+  - code: python
+    name: Python
+    group: languages
+    specs: [backend, data_ml, devops, qa, security]
+    topic: python_core
+    synonyms: [py, питон, пайтон, python3, python 3]
+  - code: java
+    name: Java
+    group: languages
+    specs: [backend, qa]
+    synonyms: [джава, ява, jvm, java 17, java 21]
+  - code: kotlin
+    name: Kotlin
+    group: languages
+    specs: [backend, frontend, qa]
+    synonyms: [котлин, kotlin jvm, kotlin coroutines]
+  - code: csharp
+    name: "C#"
+    group: languages
+    specs: [backend, qa]
+    synonyms: [csharp, c sharp, си шарп, "с#", шарп]
+  - code: cpp
+    name: C++
+    group: languages
+    specs: [backend, security]
+    topic: complexity
+    synonyms: [cpp, "с++", си плюс плюс, cplusplus, c plus plus, "c++17", "c++20", stl]
+  - code: c
+    name: C
+    group: languages
+    specs: [backend, security, devops]
+    synonyms: [си, язык си, ansi c, c99, c11]
+  - code: rust
+    name: Rust
+    group: languages
+    specs: [backend, security]
+    synonyms: [раст, rustlang, rust lang]
+  - code: php
+    name: PHP
+    group: languages
+    specs: [backend]
+    synonyms: [пхп, пых, php 8, php8]
+  - code: ruby
+    name: Ruby
+    group: languages
+    specs: [backend, qa]
+    synonyms: [руби, ruby lang]
+  - code: scala
+    name: Scala
+    group: languages
+    specs: [backend, data_ml]
+    synonyms: [скала, scala 3]
+  - code: elixir
+    name: Elixir
+    group: languages
+    specs: [backend]
+    synonyms: [эликсир, elixir lang]
+  - code: erlang
+    name: Erlang
+    group: languages
+    specs: [backend]
+    synonyms: [эрланг, erlang otp]
+  - code: perl
+    name: Perl
+    group: languages
+    specs: [backend, devops]
+    synonyms: [перл, perl 5]
+  - code: lua
+    name: Lua
+    group: languages
+    specs: [backend, devops]
+    synonyms: [луа, luajit]
+  - code: haskell
+    name: Haskell
+    group: languages
+    specs: [backend]
+    synonyms: [хаскель, хаскел, ghc]
+  - code: clojure
+    name: Clojure
+    group: languages
+    specs: [backend]
+    synonyms: [кложур, clojurescript]
+  - code: groovy
+    name: Groovy
+    group: languages
+    specs: [backend, devops, qa]
+    synonyms: [груви, apache groovy]
+  - code: javascript
+    name: JavaScript
+    group: languages
+    specs: [frontend, backend, qa]
+    topic: js_core
+    synonyms: [js, джаваскрипт, джс, ecmascript, es6, es2015, vanilla js, яваскрипт]
+  - code: typescript
+    name: TypeScript
+    group: languages
+    specs: [frontend, backend, qa]
+    topic: ts_types
+    synonyms: [ts, тайпскрипт, тс, type script]
+  - code: bash
+    name: Bash
+    group: languages
+    specs: [devops, backend, security, qa, common]
+    topic: linux_shell
+    synonyms: [shell, sh, шелл, bash scripting, shell scripting, bash скрипты, shell скрипты, zsh, командная строка]
+  - code: powershell
+    name: PowerShell
+    group: languages
+    specs: [devops, security]
+    synonyms: [павершелл, повершелл, pwsh, power shell]
+  - code: r_lang
+    name: R
+    group: languages
+    specs: [data_ml]
+    synonyms: [r language, язык r, rstudio, tidyverse, ggplot]
+  - code: julia
+    name: Julia
+    group: languages
+    specs: [data_ml]
+    synonyms: [julialang, julia lang, джулия]
+  - code: matlab
+    name: MATLAB
+    group: languages
+    specs: [data_ml]
+    synonyms: [матлаб, octave, gnu octave]
+  - code: sql
+    name: SQL
+    group: languages
+    specs: [common]
+    topic: sql
+    synonyms: [эскьюэль, скуль, скл, sql запросы, sql queries, ansi sql, язык sql]
+  - code: swift
+    name: Swift
+    group: languages
+    specs: [frontend]
+    synonyms: [свифт, swift 5]
+  - code: objective_c
+    name: Objective-C
+    group: languages
+    specs: [frontend]
+    synonyms: [objc, obj-c, обжектив си]
+  - code: dart
+    name: Dart
+    group: languages
+    specs: [frontend]
+    synonyms: [дарт, dart lang]
+  # ---------------------------------------------------------------------------
+  # Backend: фреймворки и библиотеки
+  # ---------------------------------------------------------------------------
+  - code: nodejs
+    name: Node.js
+    group: frameworks
+    specs: [backend, frontend, qa]
+    topic: concurrency
+    synonyms: [node, nodejs, нода, ноде, node js, нодa js, нодджс]
+  - code: gin
+    name: Gin
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [gin gonic, джин, gin framework]
+  - code: echo_go
+    name: Echo
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [labstack echo, echo framework]
+  - code: fiber
+    name: Fiber
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [gofiber, файбер]
+  - code: chi
+    name: Chi
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [go chi, chi router]
+  - code: gorm
+    name: GORM
+    group: frameworks
+    specs: [backend]
+    topic: sql
+    synonyms: [горм, go orm]
+  - code: sqlc
+    name: sqlc
+    group: frameworks
+    specs: [backend]
+    topic: sql
+    synonyms: [pgx, sqlc generate]
+  - code: django
+    name: Django
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [джанго, django orm]
+  - code: drf
+    name: Django REST Framework
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [drf, django rest, djangorestframework, django rest framework api]
+  - code: flask
+    name: Flask
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [фласк, flask api]
+  - code: fastapi
+    name: FastAPI
+    group: frameworks
+    specs: [backend, data_ml]
+    topic: http_rest
+    synonyms: [фастапи, fast api, фаст апи]
+  - code: aiohttp
+    name: aiohttp
+    group: frameworks
+    specs: [backend]
+    topic: concurrency
+    synonyms: [аиохттп, aio http]
+  - code: asyncio
+    name: asyncio
+    group: frameworks
+    specs: [backend, data_ml]
+    topic: concurrency
+    synonyms: [асинхронный python, async python, asyncio python, async await python, асинхронное программирование]
+  - code: sqlalchemy
+    name: SQLAlchemy
+    group: frameworks
+    specs: [backend, data_ml]
+    topic: sql
+    synonyms: [алхимия, sql alchemy, alembic, сиквел алхимия]
+  - code: pydantic
+    name: Pydantic
+    group: frameworks
+    specs: [backend, data_ml]
+    synonyms: [пидантик, pydantic v2]
+  - code: celery
+    name: Celery
+    group: frameworks
+    specs: [backend]
+    synonyms: [селери, celery beat, селери воркеры]
+  - code: spring
+    name: Spring
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [spring framework, спринг, spring mvc, spring data, spring security, spring cloud, spring webflux]
+  - code: spring_boot
+    name: Spring Boot
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [springboot, спринг бут, спринг boot, spring boot 3]
+  - code: hibernate
+    name: Hibernate
+    group: frameworks
+    specs: [backend]
+    topic: sql
+    synonyms: [хибернейт, хибернет, jpa, hibernate orm, spring data jpa]
+  - code: quarkus
+    name: Quarkus
+    group: frameworks
+    specs: [backend]
+    synonyms: [кваркус, quarkus framework]
+  - code: micronaut
+    name: Micronaut
+    group: frameworks
+    specs: [backend]
+    synonyms: [микронаут]
+  - code: ktor
+    name: Ktor
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [ктор, ktor server]
+  - code: dotnet
+    name: .NET
+    group: frameworks
+    specs: [backend, qa]
+    synonyms: [dotnet, дотнет, .net core, .net framework, net core, .net 8, дот нет]
+  - code: aspnet_core
+    name: ASP.NET Core
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [asp.net, aspnet, asp net, аспнет, asp.net mvc, asp.net web api]
+  - code: entity_framework
+    name: Entity Framework
+    group: frameworks
+    specs: [backend]
+    topic: sql
+    synonyms: [ef core, ef, entity framework core, энтити фреймворк, efcore]
+  - code: laravel
+    name: Laravel
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [ларавель, ларавел, laravel framework, eloquent]
+  - code: symfony
+    name: Symfony
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [симфони, symfony framework, doctrine]
+  - code: yii
+    name: Yii
+    group: frameworks
+    specs: [backend]
+    synonyms: [yii2, yii 2, йии]
+  - code: rails
+    name: Ruby on Rails
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [rails, ror, рельсы, рэйлс, рейлс, ruby rails]
+  - code: express
+    name: Express.js
+    group: frameworks
+    specs: [backend, frontend]
+    topic: http_rest
+    synonyms: [express, expressjs, экспресс, express js]
+  - code: nestjs
+    name: NestJS
+    group: frameworks
+    specs: [backend, frontend]
+    topic: http_rest
+    synonyms: [nest, nest.js, нест, нестжс, nest js]
+  - code: fastify
+    name: Fastify
+    group: frameworks
+    specs: [backend]
+    topic: http_rest
+    synonyms: [фастифай]
+  - code: phoenix
+    name: Phoenix
+    group: frameworks
+    specs: [backend]
+    synonyms: [phoenix framework, феникс, phoenix liveview]
+  - code: akka
+    name: Akka
+    group: frameworks
+    specs: [backend]
+    topic: concurrency
+    synonyms: [акка, actor model, модель акторов, акторы]
+  - code: grpc
+    name: gRPC
+    group: frameworks
+    specs: [backend, devops]
+    topic: http_rest
+    synonyms: [грпц, grpc api, grpc gateway, джиарписи]
+  - code: protobuf
+    name: Protocol Buffers
+    group: tools
+    specs: [backend, devops]
+    synonyms: [protobuf, proto, протобаф, proto3, protobuf schemas]
+  - code: openapi
+    name: OpenAPI
+    group: tools
+    specs: [backend, frontend, qa]
+    topic: http_rest
+    synonyms: [swagger, сваггер, openapi 3, openapi spec, swagger ui, swagger спецификация, openapi спецификация]
+  - code: kafka
+    name: Apache Kafka
+    group: infra
+    specs: [backend, devops, data_ml]
+    topic: system_design
+    synonyms: [kafka, кафка, kafka streams, kafka connect, апач кафка]
+  - code: rabbitmq
+    name: RabbitMQ
+    group: infra
+    specs: [backend, devops]
+    topic: system_design
+    synonyms: [rabbit, кролик, рэббит, реббит, amqp, рэббитмкью]
+  - code: nats
+    name: NATS
+    group: infra
+    specs: [backend, devops]
+    synonyms: [nats jetstream, натс, jetstream]
+  # ---------------------------------------------------------------------------
+  # Практики, протоколы, архитектура
+  # ---------------------------------------------------------------------------
+  - code: rest_api
+    name: REST API
+    group: practices
+    specs: [backend, frontend, qa]
+    topic: http_rest
+    synonyms: [rest, restful, restful api, рест, рест api, rest апи, restful services]
+  - code: http
+    name: HTTP
+    group: practices
+    specs: [common]
+    topic: http
+    synonyms: [https, http/2, http2, http/3, протокол http, http протокол, http headers, http методы]
+  - code: graphql
+    name: GraphQL
+    group: practices
+    specs: [backend, frontend]
+    topic: http_rest
+    synonyms: [графкл, graph ql, apollo graphql, apollo client, apollo server, графкьюэль]
+  - code: websocket
+    name: WebSocket
+    group: practices
+    specs: [backend, frontend]
+    topic: http
+    synonyms: [websockets, ws, вебсокет, вебсокеты, socket.io, вебсокетс]
+  - code: soap
+    name: SOAP
+    group: practices
+    specs: [backend, qa]
+    synonyms: [soap api, soap web services, wsdl, soap сервисы]
+  - code: microservices
+    name: Микросервисы
+    group: practices
+    specs: [backend, devops]
+    topic: system_design
+    synonyms: [microservices, микросервисная архитектура, microservice architecture, микросервисы архитектура, микросервисный подход]
+  - code: ddd
+    name: DDD
+    group: practices
+    specs: [backend]
+    topic: system_design
+    synonyms: [domain driven design, domain-driven design, предметно-ориентированное проектирование, ддд, bounded context, агрегаты ddd]
+  - code: clean_architecture
+    name: Чистая архитектура
+    group: practices
+    specs: [backend, frontend]
+    topic: system_design
+    synonyms: [clean architecture, hexagonal architecture, гексагональная архитектура, onion architecture, луковая архитектура, ports and adapters, слоистая архитектура]
+  - code: event_driven
+    name: Event-driven архитектура
+    group: practices
+    specs: [backend]
+    topic: system_design
+    synonyms: [event driven architecture, eda, событийно-ориентированная архитектура, событийная архитектура, event-driven, event driven]
+  - code: cqrs
+    name: CQRS
+    group: practices
+    specs: [backend]
+    topic: system_design
+    synonyms: [event sourcing, ивент сорсинг, cqrs es, command query responsibility segregation, event store]
+  - code: caching
+    name: Кэширование
+    group: practices
+    specs: [backend, frontend, devops]
+    topic: caching
+    synonyms: [caching, кеширование, cache, кэш, кеш, стратегии кэширования, инвалидация кэша, http cache]
+  - code: message_queues
+    name: Очереди сообщений
+    group: practices
+    specs: [backend, devops]
+    topic: system_design
+    synonyms: [message queues, message queue, message broker, брокер сообщений, брокеры сообщений, mq, очереди, асинхронный обмен сообщениями]
+  - code: distributed_systems
+    name: Распределённые системы
+    group: practices
+    specs: [backend, devops]
+    topic: system_design
+    synonyms: [distributed systems, распределенные системы, консенсус, raft, paxos, cap теорема, cap theorem, отказоустойчивость, fault tolerance]
+  - code: highload
+    name: Highload
+    group: practices
+    specs: [backend, devops]
+    topic: system_design
+    synonyms: [high load, хайлоад, высоконагруженные системы, высокие нагрузки, нагруженные системы, highload системы, масштабирование, scalability]
+  - code: system_design
+    name: Системный дизайн
+    group: practices
+    specs: [backend, frontend, devops, data_ml]
+    topic: system_design
+    synonyms: [system design, проектирование систем, архитектура систем, архитектура по, архитектура приложений, software architecture, проектирование архитектуры]
+  - code: api_design
+    name: Проектирование API
+    group: practices
+    specs: [backend, frontend]
+    topic: http_rest
+    synonyms: [api design, дизайн api, api first, api-first, версионирование api, api versioning, контракты api]
+  - code: oop
+    name: ООП
+    group: practices
+    specs: [common]
+    synonyms: [oop, object oriented programming, object-oriented programming, объектно-ориентированное программирование, объектно ориентированное программирование, инкапсуляция, полиморфизм]
+  - code: solid
+    name: SOLID
+    group: practices
+    specs: [backend, frontend]
+    synonyms: [солид, принципы solid, solid принципы, dry, kiss, yagni, принципы ооп]
+  - code: design_patterns
+    name: Паттерны проектирования
+    group: practices
+    specs: [backend, frontend]
+    synonyms: [design patterns, паттерны, шаблоны проектирования, gof, gof patterns, порождающие паттерны, структурные паттерны, поведенческие паттерны]
+  - code: algorithms
+    name: Алгоритмы и структуры данных
+    group: practices
+    specs: [common]
+    topic: complexity
+    synonyms: [алгоритмы, algorithms, структуры данных, data structures, algorithms and data structures, leetcode, литкод, codeforces, спортивное программирование, олимпиадное программирование, сложность алгоритмов, big o]
+  - code: concurrency
+    name: Многопоточность
+    group: practices
+    specs: [backend]
+    topic: concurrency
+    synonyms: [concurrency, multithreading, параллельное программирование, concurrent programming, потоки, threads, goroutines, горутины, мьютексы, mutex, race condition, гонки данных, параллелизм]
+  - code: transactions
+    name: Транзакции и изоляция
+    group: practices
+    specs: [backend]
+    topic: transactions
+    synonyms: [transactions, транзакции, acid, уровни изоляции, isolation levels, блокировки бд, deadlock, дедлок, saga, сага]
+  - code: auth_security
+    name: Аутентификация и авторизация
+    group: practices
+    specs: [backend, frontend, security]
+    topic: auth_security
+    synonyms: [authentication, authorization, аутентификация, авторизация, rbac, acl, контроль доступа, access control, sso, единый вход]
+  - code: oauth2
+    name: OAuth 2.0
+    group: security
+    specs: [backend, frontend, security]
+    topic: auth_protocols
+    synonyms: [oauth, oauth2, оаус, oauth 2]
+  - code: oidc
+    name: OpenID Connect
+    group: security
+    specs: [backend, security]
+    topic: auth_protocols
+    synonyms: [oidc, openid, open id connect, openid connect]
+  - code: jwt
+    name: JWT
+    group: security
+    specs: [backend, frontend, security]
+    topic: auth_protocols
+    synonyms: [json web token, json web tokens, джвт, jwt токены, jws, jwe]
+  - code: unit_testing
+    name: Unit-тестирование
+    group: testing
+    specs: [backend, frontend, data_ml, qa]
+    topic: testing
+    synonyms: [unit tests, unit testing, юнит тесты, юнит-тесты, модульное тестирование, модульные тесты, unit тесты, тестирование кода]
+  - code: integration_testing
+    name: Интеграционное тестирование
+    group: testing
+    specs: [backend, qa]
+    topic: testing
+    synonyms: [integration tests, integration testing, интеграционные тесты, интеграционные тесты api, компонентное тестирование]
+  - code: tdd
+    name: TDD
+    group: practices
+    specs: [backend, frontend, qa]
+    topic: testing
+    synonyms: [test driven development, test-driven development, разработка через тестирование, тдд]
+  - code: bdd
+    name: BDD
+    group: practices
+    specs: [qa, backend]
+    topic: test_design
+    synonyms: [behavior driven development, behaviour driven development, gherkin, геркин, бдд]
+  - code: code_review
+    name: Code review
+    group: practices
+    specs: [common]
+    synonyms: [код ревью, код-ревью, ревью кода, codereview, review кода, pull request review, pr review]
+  - code: refactoring
+    name: Рефакторинг
+    group: practices
+    specs: [backend, frontend]
+    synonyms: [refactoring, чистый код, clean code, читаемый код, технический долг, tech debt, legacy код, работа с легаси]
+  - code: profiling
+    name: Профилирование и оптимизация
+    group: practices
+    specs: [backend, frontend, data_ml]
+    topic: rendering_perf
+    synonyms: [profiling, профилирование, pprof, оптимизация производительности, performance optimization, performance tuning, оптимизация кода, flame graph]
+  - code: errors_logging
+    name: Обработка ошибок и логирование
+    group: practices
+    specs: [backend, devops]
+    topic: errors_logging
+    synonyms: [error handling, обработка ошибок, logging, логирование, структурированные логи, structured logging, логи, zap, logrus, slog, log4j, logback]
+  - code: observability
+    name: Наблюдаемость
+    group: practices
+    specs: [devops, backend]
+    topic: observability
+    synonyms: [observability, monitoring, мониторинг, метрики, metrics, tracing, трейсинг, трассировка, алертинг, alerting, slo, sli, sla, аптайм]
+  - code: ci_cd
+    name: CI/CD
+    group: practices
+    specs: [devops, backend, frontend, qa]
+    topic: ci_cd
+    synonyms: [ci, cd, ci cd, continuous integration, continuous delivery, continuous deployment, непрерывная интеграция, непрерывная доставка, пайплайны, pipelines, пайплайн, build pipeline, деплой, deployment, деплоймент]
+  - code: devops_practice
+    name: DevOps-практики
+    group: practices
+    specs: [devops, backend]
+    topic: ci_cd
+    synonyms: [devops, девопс, dev ops, devops практики, devops культура, platform engineering, платформенная инженерия]
+  - code: sre
+    name: SRE
+    group: practices
+    specs: [devops]
+    topic: incident_response
+    synonyms: [site reliability engineering, site reliability, надёжность, надежность, reliability engineering, error budget, бюджет ошибок]
+  - code: gitops
+    name: GitOps
+    group: practices
+    specs: [devops]
+    topic: ci_cd
+    synonyms: [git ops, гитопс, flux cd, fluxcd]
+  - code: iac
+    name: Инфраструктура как код
+    group: practices
+    specs: [devops]
+    topic: iac
+    synonyms: [infrastructure as code, iac, инфраструктура как код, iac подход, конфигурация как код]
+  - code: incident_management
+    name: Управление инцидентами
+    group: practices
+    specs: [devops, security]
+    topic: incident_response
+    synonyms: [incident management, incident response, инциденты, разбор инцидентов, postmortem, постмортем, post mortem, дежурства, on-call, on call, оперативное реагирование]
+  - code: agile
+    name: Agile
+    group: practices
+    specs: [common]
+    synonyms: [эджайл, аджайл, agile methodologies, гибкие методологии, гибкая разработка, safe, less framework]
+  - code: scrum
+    name: Scrum
+    group: practices
+    specs: [common]
+    synonyms: [скрам, scrum master, скрам мастер, спринты, sprints, спринт, стендапы, daily, ретроспективы]
+  - code: kanban
+    name: Kanban
+    group: practices
+    specs: [common]
+    synonyms: [канбан, kanban доска, канбан доска, wip лимиты]
+  - code: technical_writing
+    name: Техническая документация
+    group: practices
+    specs: [common]
+    synonyms: [technical writing, техническое письмо, документирование, документация, написание документации, readme, adr, техдокументация, markdown]
+  - code: requirements_analysis
+    name: Анализ требований
+    group: practices
+    specs: [backend, frontend, qa]
+    synonyms: [requirements analysis, сбор требований, анализ требований, бизнес-анализ, business analysis, системный анализ, system analysis, постановка задач, user stories, пользовательские истории, тз, техническое задание]
+  - code: uml
+    name: UML и моделирование
+    group: practices
+    specs: [backend, qa]
+    topic: system_design
+    synonyms: [uml, bpmn, диаграммы, diagrams, c4 model, c4, plantuml, mermaid, erd, er-диаграммы, моделирование процессов]
+  - code: linux
+    name: Linux
+    group: infra
+    specs: [devops, backend, security, common]
+    topic: linux_shell
+    synonyms: [линукс, gnu linux, ubuntu, убунту, debian, дебиан, centos, центос, rhel, red hat, fedora, alpine, arch linux, linux администрирование, администрирование linux, unix, юникс]
+  - code: windows_server
+    name: Windows Server
+    group: infra
+    specs: [devops, security]
+    synonyms: [windows администрирование, администрирование windows, win server, виндовс сервер, iis]
+  - code: active_directory
+    name: Active Directory
+    group: infra
+    specs: [devops, security]
+    topic: auth_protocols
+    synonyms: [ad, актив директори, active directory администрирование, ldap, kerberos, керберос, group policy, gpo]
+  - code: networking
+    name: Сети и TCP/IP
+    group: infra
+    specs: [devops, security, common]
+    topic: networking
+    synonyms: [networking, сети, tcp/ip, tcp ip, tcp, udp, ip, dns, dhcp, osi, модель osi, маршрутизация, routing, vlan, bgp, ospf, сетевое администрирование, network administration, cisco, циско, mikrotik, микротик, компьютерные сети]
+  - code: load_balancing
+    name: Балансировка нагрузки
+    group: infra
+    specs: [devops, backend]
+    topic: networking
+    synonyms: [load balancing, балансировка, балансировщик, load balancer, reverse proxy, обратный прокси, l4, l7, keepalived]
+  - code: nginx
+    name: Nginx
+    group: infra
+    specs: [devops, backend]
+    topic: networking
+    synonyms: [нгинкс, энджинкс, nginx ingress, openresty, angie]
+  - code: apache_httpd
+    name: Apache HTTP Server
+    group: infra
+    specs: [devops, backend]
+    synonyms: [apache, апач, httpd, apache2, apache httpd]
+  - code: haproxy
+    name: HAProxy
+    group: infra
+    specs: [devops]
+    synonyms: [ha proxy, хапрокси]
+  - code: traefik
+    name: Traefik
+    group: infra
+    specs: [devops]
+    synonyms: [трафик прокси, traefik proxy]
+  - code: caddy
+    name: Caddy
+    group: infra
+    specs: [devops, backend]
+    synonyms: [caddy server, кадди]
+  - code: envoy
+    name: Envoy
+    group: infra
+    specs: [devops, backend]
+    synonyms: [envoy proxy, энвой]
+  - code: istio
+    name: Istio
+    group: infra
+    specs: [devops]
+    topic: kubernetes
+    synonyms: [истио, service mesh, сервис меш, linkerd, сервисная сетка]
+  - code: docker
+    name: Docker
+    group: infra
+    specs: [devops, backend, frontend, data_ml, qa, security]
+    topic: docker
+    synonyms: [докер, containers, контейнеры, контейнеризация, containerization, dockerfile, докерфайл, docker images, docker образы, podman, подман, containerd]
+  - code: docker_compose
+    name: Docker Compose
+    group: infra
+    specs: [devops, backend, qa]
+    topic: docker
+    synonyms: [compose, docker-compose, докер компоуз, докер композ, docker compose v2]
+  - code: kubernetes
+    name: Kubernetes
+    group: infra
+    specs: [devops, backend, data_ml]
+    topic: kubernetes
+    synonyms: [k8s, кубер, кубернетес, кубернетис, кубик, k8s кластер, кластер kubernetes, kube, kubectl, eks, gke, aks, minikube, kind, k3s]
+  - code: helm
+    name: Helm
+    group: infra
+    specs: [devops]
+    topic: kubernetes
+    synonyms: [хелм, helm charts, helm чарты, чарты, kustomize]
+  - code: openshift
+    name: OpenShift
+    group: infra
+    specs: [devops]
+    topic: kubernetes
+    synonyms: [опеншифт, okd, red hat openshift]
+  - code: terraform
+    name: Terraform
+    group: infra
+    specs: [devops]
+    topic: iac
+    synonyms: [терраформ, tf, opentofu, tofu, hcl]
+  - code: ansible
+    name: Ansible
+    group: infra
+    specs: [devops]
+    topic: iac
+    synonyms: [ансибл, ansible playbooks, плейбуки, playbooks, ansible роли]
+  - code: pulumi
+    name: Pulumi
+    group: infra
+    specs: [devops]
+    topic: iac
+    synonyms: [пулуми]
+  - code: aws
+    name: AWS
+    group: infra
+    specs: [devops, backend, data_ml]
+    synonyms: [amazon web services, амазон, авс, ec2, s3, lambda, aws lambda, rds, cloudfront, iam aws, amazon s3, route53]
+  - code: gcp
+    name: Google Cloud
+    group: infra
+    specs: [devops, backend, data_ml]
+    synonyms: [google cloud platform, гугл клауд, bigquery, cloud run, gcs, google cloud storage]
+  - code: azure
+    name: Microsoft Azure
+    group: infra
+    specs: [devops, backend]
+    synonyms: [azure, ажур, азур, azure devops, azure functions, azure ad, entra id]
+  - code: yandex_cloud
+    name: Yandex Cloud
+    group: infra
+    specs: [devops, backend, data_ml]
+    synonyms: [яндекс облако, яндекс клауд, ycloud, yandex cloud functions, yandex object storage, managed kubernetes yandex]
+  - code: vk_cloud
+    name: VK Cloud
+    group: infra
+    specs: [devops, backend]
+    synonyms: [вк облако, mail.ru cloud, mcs, vk cloud solutions, вк клауд]
+  - code: selectel
+    name: Selectel
+    group: infra
+    specs: [devops]
+    synonyms: [селектел, selectel cloud, облако selectel]
+  - code: openstack
+    name: OpenStack
+    group: infra
+    specs: [devops]
+    synonyms: [опенстек, openstack cloud]
+  - code: virtualization
+    name: Виртуализация
+    group: infra
+    specs: [devops]
+    synonyms: [virtualization, vmware, vsphere, esxi, proxmox, проксмокс, hyper-v, hyper v, kvm, qemu, virtualbox, виртуальные машины, virtual machines, vm]
+  - code: cdn
+    name: CDN и edge
+    group: infra
+    specs: [devops, frontend]
+    topic: networking
+    synonyms: [cdn, cloudflare, клаудфлер, content delivery network, edge computing]
+  - code: consul
+    name: Consul
+    group: infra
+    specs: [devops, backend]
+    synonyms: [hashicorp consul, консул, service discovery, сервис дискавери, обнаружение сервисов]
+  - code: vault
+    name: HashiCorp Vault
+    group: infra
+    specs: [devops, security, backend]
+    topic: auth_security
+    synonyms: [vault, волт, управление секретами, secrets management, secret management, секреты]
+  - code: keycloak
+    name: Keycloak
+    group: infra
+    specs: [backend, devops, security]
+    topic: auth_protocols
+    synonyms: [кейклок, кейклоак, key cloak, identity provider, idp, провайдер идентификации]
+  - code: prometheus
+    name: Prometheus
+    group: infra
+    specs: [devops, backend]
+    topic: observability
+    synonyms: [прометеус, прометей, promql, alertmanager, victoriametrics, victoria metrics, thanos, exporters]
+  - code: grafana
+    name: Grafana
+    group: infra
+    specs: [devops, backend, data_ml]
+    topic: observability
+    synonyms: [графана, grafana dashboards, дашборды grafana]
+  - code: loki
+    name: Grafana Loki
+    group: infra
+    specs: [devops]
+    topic: observability
+    synonyms: [loki, локи, promtail]
+  - code: elk
+    name: ELK / Elastic Stack
+    group: infra
+    specs: [devops, backend]
+    topic: observability
+    synonyms: [elk, elk stack, elastic stack, kibana, кибана, logstash, логстеш, filebeat, beats, opensearch dashboards]
+  - code: zabbix
+    name: Zabbix
+    group: infra
+    specs: [devops]
+    topic: observability
+    synonyms: [заббикс, забикс, nagios, icinga]
+  - code: jaeger
+    name: Jaeger
+    group: infra
+    specs: [devops, backend]
+    topic: observability
+    synonyms: [егерь, jaeger tracing, zipkin, tempo, grafana tempo]
+  - code: opentelemetry
+    name: OpenTelemetry
+    group: infra
+    specs: [devops, backend]
+    topic: observability
+    synonyms: [otel, open telemetry, опентелеметри, otel collector, otlp]
+  - code: sentry
+    name: Sentry
+    group: infra
+    specs: [backend, frontend, devops]
+    topic: errors_logging
+    synonyms: [сентри, error tracking, трекинг ошибок, glitchtip]
+  - code: gitlab_ci
+    name: GitLab CI
+    group: infra
+    specs: [devops, backend, frontend, qa]
+    topic: ci_cd
+    synonyms: [gitlab ci/cd, gitlab pipelines, гитлаб ci, gitlab-ci, gitlab runner, гитлаб раннер]
+  - code: github_actions
+    name: GitHub Actions
+    group: infra
+    specs: [devops, backend, frontend, qa]
+    topic: ci_cd
+    synonyms: [gh actions, гитхаб экшенс, github workflows, actions github]
+  - code: jenkins
+    name: Jenkins
+    group: infra
+    specs: [devops, qa]
+    topic: ci_cd
+    synonyms: [дженкинс, jenkins pipelines, jenkinsfile, jenkins pipeline]
+  - code: teamcity
+    name: TeamCity
+    group: infra
+    specs: [devops, qa]
+    topic: ci_cd
+    synonyms: [тимсити, team city]
+  - code: argocd
+    name: Argo CD
+    group: infra
+    specs: [devops]
+    topic: ci_cd
+    synonyms: [argocd, argo, арго, argo workflows, argo rollouts]
+  # ---------------------------------------------------------------------------
+  # Базы данных и хранилища
+  # ---------------------------------------------------------------------------
+  - code: postgresql
+    name: PostgreSQL
+    group: databases
+    specs: [backend, data_ml, devops, qa]
+    topic: sql
+    synonyms: [postgres, постгрес, постгре, pg, psql, постгрескуль, postgre, pgsql, postgresql 16, postgresql 17]
+  - code: mysql
+    name: MySQL
+    group: databases
+    specs: [backend, qa, devops]
+    topic: sql
+    synonyms: [майскл, мускул, mariadb, мариадб, мария дб, percona, mysql 8]
+  - code: sqlite
+    name: SQLite
+    group: databases
+    specs: [backend, frontend, qa]
+    topic: sql
+    synonyms: [sqlite3, скулайт, эсклайт]
+  - code: mssql
+    name: Microsoft SQL Server
+    group: databases
+    specs: [backend, qa]
+    topic: sql
+    synonyms: [mssql, ms sql, sql server, мссql, t-sql, tsql, microsoft sql]
+  - code: oracle_db
+    name: Oracle Database
+    group: databases
+    specs: [backend, qa]
+    topic: sql
+    synonyms: [oracle, оракл, pl/sql, plsql, oracle db, oracle 19c]
+  - code: mongodb
+    name: MongoDB
+    group: databases
+    specs: [backend, frontend, data_ml]
+    topic: system_design
+    synonyms: [mongo, монго, монгодб, mongo db, nosql, носкл, документная бд, document database]
+  - code: redis
+    name: Redis
+    group: databases
+    specs: [backend, devops]
+    topic: caching
+    synonyms: [редис, redis cluster, redis sentinel, valkey, keydb, dragonfly]
+  - code: memcached
+    name: Memcached
+    group: databases
+    specs: [backend, devops]
+    topic: caching
+    synonyms: [мемкеш, мемкешд, memcache]
+  - code: elasticsearch
+    name: Elasticsearch
+    group: databases
+    specs: [backend, devops, data_ml]
+    topic: system_design
+    synonyms: [elastic, эластик, эластиксерч, эластиксёрч, opensearch, опенсерч, полнотекстовый поиск, full text search, full-text search, поисковый движок, sphinx, manticore]
+  - code: clickhouse
+    name: ClickHouse
+    group: databases
+    specs: [backend, data_ml, devops]
+    topic: sql
+    synonyms: [кликхаус, клик хаус, ch, click house, колоночная бд, columnar database]
+  - code: cassandra
+    name: Apache Cassandra
+    group: databases
+    specs: [backend, devops]
+    topic: system_design
+    synonyms: [cassandra, кассандра, scylla, scylladb, сцилла, cql]
+  - code: neo4j
+    name: Neo4j
+    group: databases
+    specs: [backend, data_ml]
+    synonyms: [нео4дж, графовая бд, graph database, графовые базы данных, cypher, gremlin, janusgraph]
+  - code: dynamodb
+    name: DynamoDB
+    group: databases
+    specs: [backend]
+    synonyms: [dynamo, динамодб, amazon dynamodb]
+  - code: influxdb
+    name: InfluxDB
+    group: databases
+    specs: [devops, backend, data_ml]
+    synonyms: [influx, инфлюкс, timeseries db, time series database, timescaledb, timescale, бд временных рядов]
+  - code: etcd
+    name: etcd
+    group: databases
+    specs: [devops, backend]
+    synonyms: [этсд, etcd cluster, zookeeper, зукипер]
+  - code: object_storage
+    name: Объектное хранилище S3
+    group: databases
+    specs: [backend, devops, data_ml]
+    synonyms: [object storage, s3 storage, s3 compatible, minio, минио, ceph, цеф, объектное хранилище, s3 api, blob storage]
+  - code: tarantool
+    name: Tarantool
+    group: databases
+    specs: [backend]
+    synonyms: [тарантул, tarantool db, in-memory db, in memory database]
+  - code: ydb
+    name: YDB
+    group: databases
+    specs: [backend, devops]
+    synonyms: [yandex database, яндекс ydb, ydb database]
+  - code: greenplum
+    name: Greenplum
+    group: databases
+    specs: [data_ml, backend]
+    topic: sql
+    synonyms: [гринплам, гринплюм, mpp база, mpp database, arenadata, vertica, вертика, teradata]
+  - code: firebase
+    name: Firebase
+    group: databases
+    specs: [frontend]
+    synonyms: [файрбейс, фаербейс, firestore, firebase auth, supabase, суpabase]
+  - code: db_migrations
+    name: Миграции БД
+    group: tools
+    specs: [backend, devops]
+    topic: sql
+    synonyms: [migrations, миграции, миграции базы данных, database migrations, liquibase, ликвибейс, flyway, флайвей, goose, golang-migrate, схема бд, schema migrations]
+  - code: db_design
+    name: Проектирование БД
+    group: practices
+    specs: [backend, data_ml]
+    topic: sql
+    synonyms: [database design, проектирование баз данных, нормализация, normalization, индексы, indexes, оптимизация запросов, query optimization, explain analyze, план запроса, схема данных, data modeling, моделирование данных]
+  - code: prisma
+    name: Prisma
+    group: frameworks
+    specs: [backend, frontend]
+    topic: sql
+    synonyms: [prisma orm, призма, drizzle, drizzle orm]
+  - code: typeorm
+    name: TypeORM
+    group: frameworks
+    specs: [backend, frontend]
+    topic: sql
+    synonyms: [type orm, тайпорм, sequelize, mikro-orm, mikroorm, knex]
+  - code: mongoose
+    name: Mongoose
+    group: frameworks
+    specs: [backend, frontend]
+    synonyms: [mongoose odm, мангуст]
+  # ---------------------------------------------------------------------------
+  # Инструменты
+  # ---------------------------------------------------------------------------
+  - code: git
+    name: Git
+    group: tools
+    specs: [common]
+    topic: git
+    synonyms: [гит, git flow, gitflow, гитфлоу, trunk based development, trunk-based, ветвление, branching, rebase, merge requests, pull requests, система контроля версий, version control, vcs, svn]
+  - code: github
+    name: GitHub
+    group: tools
+    specs: [common]
+    topic: git
+    synonyms: [гитхаб, гит хаб, github.com]
+  - code: gitlab
+    name: GitLab
+    group: tools
+    specs: [common]
+    topic: git
+    synonyms: [гитлаб, гит лаб, gitlab.com, gitlab self-hosted]
+  - code: bitbucket
+    name: Bitbucket
+    group: tools
+    specs: [common]
+    topic: git
+    synonyms: [битбакет, bit bucket, atlassian bitbucket]
+  - code: jira
+    name: Jira
+    group: tools
+    specs: [common]
+    synonyms: [джира, жира, atlassian jira, youtrack, ютрек, yandex tracker, трекер задач, task tracker, таск трекер, kaiten, кайтен]
+  - code: confluence
+    name: Confluence
+    group: tools
+    specs: [common]
+    synonyms: [конфлюенс, конфа, notion, ноушен, wiki, вики, atlassian confluence]
+  - code: postman
+    name: Postman
+    group: tools
+    specs: [qa, backend, frontend]
+    topic: automation_api
+    synonyms: [постман, insomnia, инсомния, hoppscotch, bruno api, http клиенты]
+  - code: gradle
+    name: Gradle
+    group: tools
+    specs: [backend, qa]
+    synonyms: [грейдл, градл, gradle kotlin dsl]
+  - code: maven
+    name: Maven
+    group: tools
+    specs: [backend, qa]
+    synonyms: [мавен, мэвен, apache maven, pom.xml]
+  - code: cmake
+    name: CMake
+    group: tools
+    specs: [backend]
+    synonyms: [смейк, make, makefile, мейкфайл, ninja build, gnu make]
+  - code: npm
+    name: npm
+    group: tools
+    specs: [frontend, backend]
+    topic: bundling
+    synonyms: [npm пакеты, yarn, ярн, pnpm, пнпм, bun, package.json, менеджер пакетов, package manager]
+  - code: figma
+    name: Figma
+    group: tools
+    specs: [frontend]
+    synonyms: [фигма, figma design, дизайн-макеты, макеты figma, sketch, зеплин, zeplin]
+  - code: eslint
+    name: ESLint и Prettier
+    group: tools
+    specs: [frontend, backend]
+    topic: bundling
+    synonyms: [eslint, эслинт, prettier, претьер, линтеры, linters, linting, линтинг, stylelint, biome]
+  - code: golangci_lint
+    name: Линтеры Go
+    group: tools
+    specs: [backend]
+    synonyms: [golangci-lint, golangci lint, gofmt, go vet, staticcheck, линтеры go]
+  - code: storybook
+    name: Storybook
+    group: tools
+    specs: [frontend]
+    synonyms: [сторибук, story book, chromatic]
+  - code: wireshark
+    name: Wireshark
+    group: tools
+    specs: [security, devops]
+    topic: network_security
+    synonyms: [вайршарк, tcpdump, анализ трафика, sniffer, сниффер, packet analysis]
+  - code: burp_suite
+    name: Burp Suite
+    group: tools
+    specs: [security, qa]
+    topic: web_vulns
+    synonyms: [burp, бурп, burpsuite, owasp zap, zap proxy, zaproxy]
+  - code: nmap
+    name: Nmap
+    group: tools
+    specs: [security, devops]
+    topic: network_security
+    synonyms: [нмап, сканирование портов, port scanning, masscan, сканер портов]
+  - code: metasploit
+    name: Metasploit
+    group: tools
+    specs: [security]
+    topic: web_vulns
+    synonyms: [метасплоит, msf, metasploit framework, exploit db, exploitdb]
+  - code: kali_linux
+    name: Kali Linux
+    group: tools
+    specs: [security]
+    synonyms: [kali, кали, кали линукс, parrot os, blackarch]
+  # ---------------------------------------------------------------------------
+  # Данные и ML
+  # ---------------------------------------------------------------------------
+  - code: pandas
+    name: pandas
+    group: data
+    specs: [data_ml, backend]
+    topic: pandas_sql
+    synonyms: [пандас, пандас dataframe, dataframe, polars, поларс]
+  - code: numpy
+    name: NumPy
+    group: data
+    specs: [data_ml]
+    topic: python_core
+    synonyms: [нампай, нумпай, numpy arrays, scipy, сайпай]
+  - code: scikit_learn
+    name: scikit-learn
+    group: data
+    specs: [data_ml]
+    topic: models
+    synonyms: [sklearn, сайкит, scikit learn, сайкит лерн, scikit]
+  - code: tensorflow
+    name: TensorFlow
+    group: data
+    specs: [data_ml]
+    topic: models
+    synonyms: [tf framework, тензорфлоу, тенсорфлоу, keras, керас, tensorflow 2]
+  - code: pytorch
+    name: PyTorch
+    group: data
+    specs: [data_ml]
+    topic: models
+    synonyms: [torch, пайторч, пайторч lightning, pytorch lightning, torchvision]
+  - code: gradient_boosting
+    name: Градиентный бустинг
+    group: data
+    specs: [data_ml]
+    topic: models
+    synonyms: [xgboost, иксджибуст, lightgbm, лайтджибиэм, catboost, кэтбуст, катбуст, gradient boosting, бустинг, gbdt, decision trees, деревья решений, random forest, случайный лес]
+  - code: statsmodels
+    name: statsmodels
+    group: data
+    specs: [data_ml]
+    topic: statistics
+    synonyms: [стэтсмоделс, statsmodel]
+  - code: data_visualization
+    name: Визуализация данных
+    group: data
+    specs: [data_ml, frontend]
+    synonyms: [data visualization, визуализация, matplotlib, матплотлиб, seaborn, сиборн, plotly, плотли, bokeh, altair, графики, dashboards, дашборды]
+  - code: jupyter
+    name: Jupyter
+    group: data
+    specs: [data_ml]
+    topic: python_core
+    synonyms: [jupyter notebook, jupyter lab, jupyterlab, юпитер, ноутбуки, notebooks, google colab, colab, kaggle, каггл]
+  - code: spark
+    name: Apache Spark
+    group: data
+    specs: [data_ml, backend, devops]
+    topic: pandas_sql
+    synonyms: [spark, спарк, pyspark, пайспарк, spark sql, spark streaming, databricks, датабрикс]
+  - code: hadoop
+    name: Hadoop
+    group: data
+    specs: [data_ml, devops]
+    synonyms: [хадуп, hdfs, hive, хайв, yarn hadoop, mapreduce, map reduce, big data, биг дата, большие данные]
+  - code: airflow
+    name: Apache Airflow
+    group: data
+    specs: [data_ml, devops, backend]
+    topic: ci_cd
+    synonyms: [airflow, эйрфлоу, аирфлоу, dags, даги, prefect, dagster, luigi, оркестрация пайплайнов]
+  - code: dbt
+    name: dbt
+    group: data
+    specs: [data_ml]
+    topic: pandas_sql
+    synonyms: [dbt core, data build tool, дбт]
+  - code: etl
+    name: ETL и инженерия данных
+    group: data
+    specs: [data_ml, backend]
+    topic: pandas_sql
+    synonyms: [etl, elt, data engineering, инженерия данных, дата инженерия, пайплайны данных, data pipelines, data pipeline, обработка данных, data processing, nifi, apache nifi, talend, pentaho, airbyte]
+  - code: data_warehouse
+    name: Хранилища данных
+    group: data
+    specs: [data_ml, backend]
+    topic: sql
+    synonyms: [data warehouse, dwh, кхд, хранилище данных, data lake, дата лейк, озеро данных, lakehouse, snowflake, сноуфлейк, redshift, data vault, star schema, схема звезда, olap, кубы olap]
+  - code: mlflow
+    name: MLflow
+    group: data
+    specs: [data_ml]
+    topic: experiment_design
+    synonyms: [млфлоу, ml flow, weights and biases, wandb, clearml, neptune ai, трекинг экспериментов, experiment tracking]
+  - code: mlops
+    name: MLOps
+    group: data
+    specs: [data_ml, devops]
+    topic: ci_cd
+    synonyms: [ml ops, млопс, kubeflow, кубфлоу, model serving, деплой моделей, model deployment, feature store, bentoml, seldon, triton inference]
+  - code: huggingface
+    name: Hugging Face
+    group: data
+    specs: [data_ml]
+    topic: models
+    synonyms: [hugging face, хаггинг фейс, transformers, трансформеры, hf transformers, bert, берт, fine-tuning, fine tuning, файнтюнинг, дообучение моделей, lora, peft]
+  - code: llm
+    name: LLM и prompt engineering
+    group: data
+    specs: [data_ml, backend]
+    topic: models
+    synonyms: [llm, large language models, большие языковые модели, языковые модели, gpt, chatgpt, gpt-4, openai api, prompt engineering, промпт инжиниринг, промптинг, промпты, llama, mistral, qwen, gigachat, гигачат, yandexgpt, яндексgpt, ollama, vllm, ai агенты, ai agents, agents llm]
+  - code: langchain
+    name: LangChain
+    group: data
+    specs: [data_ml, backend]
+    topic: models
+    synonyms: [ланчейн, лангчейн, langgraph, llamaindex, llama index, haystack]
+  - code: rag
+    name: RAG
+    group: data
+    specs: [data_ml, backend]
+    topic: models
+    synonyms: [retrieval augmented generation, retrieval-augmented generation, раг, рэг, семантический поиск, semantic search, embeddings, эмбеддинги, векторный поиск, vector search]
+  - code: vector_db
+    name: Векторные БД
+    group: databases
+    specs: [data_ml, backend]
+    synonyms: [vector database, векторная база, pgvector, qdrant, квадрант, milvus, weaviate, faiss, chroma, chromadb, pinecone]
+  - code: nlp
+    name: NLP
+    group: data
+    specs: [data_ml]
+    topic: models
+    synonyms: [natural language processing, обработка естественного языка, нлп, text mining, анализ текста, spacy, nltk, natasha, наташа, gensim, word2vec, токенизация, named entity recognition, ner, классификация текстов]
+  - code: computer_vision
+    name: Computer Vision
+    group: data
+    specs: [data_ml]
+    topic: models
+    synonyms: [cv, компьютерное зрение, opencv, опенсв, детекция объектов, object detection, yolo, йоло, сегментация изображений, image segmentation, распознавание изображений, image recognition, ocr, распознавание текста]
+  - code: deep_learning
+    name: Deep Learning
+    group: data
+    specs: [data_ml]
+    topic: models
+    synonyms: [глубокое обучение, нейросети, нейронные сети, neural networks, deep learning models, cnn, rnn, lstm, трансформер архитектура, attention, gan, диффузионные модели, diffusion models, autoencoder]
+  - code: machine_learning
+    name: Machine Learning
+    group: data
+    specs: [data_ml]
+    topic: models
+    synonyms: [ml, машинное обучение, мл, обучение моделей, классификация, classification, регрессия, regression, кластеризация, clustering, supervised learning, unsupervised learning, обучение с учителем, обучение без учителя]
+  - code: recommender_systems
+    name: Рекомендательные системы
+    group: data
+    specs: [data_ml]
+    topic: models
+    synonyms: [recommender systems, recsys, рекомендации, рекомендательные алгоритмы, collaborative filtering, коллаборативная фильтрация, матричные разложения, matrix factorization, ranking models, learning to rank]
+  - code: time_series
+    name: Временные ряды
+    group: data
+    specs: [data_ml]
+    topic: statistics
+    synonyms: [time series, тайм серии, прогнозирование, forecasting, arima, prophet, прогноз спроса, demand forecasting]
+  - code: reinforcement_learning
+    name: Reinforcement Learning
+    group: data
+    specs: [data_ml]
+    topic: models
+    synonyms: [rl, обучение с подкреплением, q-learning, dqn, ppo, gym, gymnasium]
+  - code: statistics
+    name: Статистика и теория вероятностей
+    group: data
+    specs: [data_ml]
+    topic: statistics
+    synonyms: [statistics, статистика, матстат, математическая статистика, теория вероятностей, probability, probability theory, теорвер, гипотезы, статистические тесты, hypothesis testing, доверительные интервалы, confidence intervals, bayesian, байесовская статистика, линейная алгебра, linear algebra, матанализ]
+  - code: ab_testing
+    name: A/B-тестирование
+    group: data
+    specs: [data_ml]
+    topic: experiment_design
+    synonyms: [ab testing, a/b testing, а/б тесты, аб тесты, ab тесты, аб тестирование, сплит тесты, split testing, дизайн экспериментов, experiment design, эксперименты, причинно-следственный анализ, causal inference, uplift]
+  - code: feature_engineering
+    name: Feature engineering
+    group: data
+    specs: [data_ml]
+    topic: feature_engineering
+    synonyms: [фича инжиниринг, инженерия признаков, признаки, features, отбор признаков, feature selection, препроцессинг, preprocessing, предобработка данных, data cleaning, очистка данных]
+  - code: model_validation
+    name: Валидация моделей и метрики
+    group: data
+    specs: [data_ml]
+    topic: metrics_validation
+    synonyms: [валидация моделей, model validation, метрики качества, metrics ml, cross validation, кросс-валидация, кросс валидация, roc auc, auc, precision recall, f1, f1-score, переобучение, overfitting, калибровка моделей]
+  - code: bi_tools
+    name: BI-инструменты
+    group: data
+    specs: [data_ml]
+    synonyms: [bi, business intelligence, бизнес-аналитика, power bi, пауэр би, tableau, табло, superset, apache superset, datalens, даталенс, yandex datalens, metabase, metabase dashboards, qlik, qlikview, looker, redash, отчётность, отчетность, reporting]
+  - code: excel
+    name: Excel и Google Sheets
+    group: tools
+    specs: [data_ml, common]
+    synonyms: [excel, эксель, google sheets, гугл таблицы, таблицы, сводные таблицы, pivot tables, vba, впр, vlookup]
+  - code: cuda
+    name: CUDA и GPU
+    group: data
+    specs: [data_ml, backend]
+    synonyms: [cuda, куда, gpu, gpu computing, вычисления на gpu, nvidia, tensorrt, cudnn, hpc, высокопроизводительные вычисления]
+  # ---------------------------------------------------------------------------
+  # Безопасность
+  # ---------------------------------------------------------------------------
+  - code: owasp
+    name: OWASP и веб-уязвимости
+    group: security
+    specs: [security, backend, frontend, qa]
+    topic: web_vulns
+    synonyms: [owasp, овасп, owasp top 10, web security, веб-безопасность, веб безопасность, sql injection, sql инъекции, sqli, xss, csrf, ssrf, xxe, injection, инъекции, уязвимости, vulnerabilities, безопасность веб-приложений]
+  - code: pentest
+    name: Пентест
+    group: security
+    specs: [security]
+    topic: web_vulns
+    synonyms: [pentest, penetration testing, пентестинг, тестирование на проникновение, тест на проникновение, red team, редтим, этичный хакинг, ethical hacking, bug bounty, багбаунти]
+  - code: cryptography
+    name: Криптография
+    group: security
+    specs: [security, backend]
+    topic: crypto_basics
+    synonyms: [cryptography, крипта, криптографические алгоритмы, шифрование, encryption, aes, rsa, ecdsa, хэширование, hashing, hmac, гост криптография, гост 34.10, криптопро, cryptopro, ключи шифрования, kms]
+  - code: tls_pki
+    name: TLS и PKI
+    group: security
+    specs: [security, devops, backend]
+    topic: crypto_basics
+    synonyms: [tls, ssl, ssl/tls, сертификаты, certificates, pki, x509, x.509, lets encrypt, letsencrypt, удостоверяющий центр, certificate authority, mtls, mutual tls]
+  - code: siem
+    name: SIEM и SOC
+    group: security
+    specs: [security]
+    topic: incident_forensics
+    synonyms: [siem, соц, soc, security operations center, центр мониторинга безопасности, splunk, сплунк, qradar, arcsight, kuma, maxpatrol siem, elastic siem, wazuh, корреляция событий, мониторинг безопасности]
+  - code: ids_ips
+    name: IDS/IPS и сетевая защита
+    group: security
+    specs: [security, devops]
+    topic: network_security
+    synonyms: [ids, ips, suricata, snort, сурикaта, обнаружение вторжений, intrusion detection, межсетевые экраны, firewalls, firewall, фаервол, файрвол, iptables, nftables, pfsense, netfilter, ngfw, usergate, checkpoint]
+  - code: waf
+    name: WAF
+    group: security
+    specs: [security, devops]
+    topic: web_vulns
+    synonyms: [web application firewall, ваф, modsecurity, mod security, ptaf, solidwall, защита веб-приложений]
+  - code: vpn
+    name: VPN и туннелирование
+    group: security
+    specs: [security, devops]
+    topic: network_security
+    synonyms: [vpn, впн, wireguard, вайргард, openvpn, ipsec, ikev2, туннели, tunneling, site-to-site vpn]
+  - code: network_security
+    name: Сетевая безопасность
+    group: security
+    specs: [security, devops]
+    topic: network_security
+    synonyms: [network security, защита сети, сегментация сети, network segmentation, zero trust, зиро траст, нулевое доверие, dmz, nac, 802.1x, защита периметра]
+  - code: secure_sdlc
+    name: Secure SDLC
+    group: security
+    specs: [security, backend, devops]
+    topic: secure_code_review
+    synonyms: [secure sdlc, ssdlc, devsecops, девсекопс, безопасная разработка, secure development, security by design, appsec, application security, безопасность приложений, sast, dast, iast, sca, snyk, sonarqube, сонаркуб, semgrep, checkmarx, dependency check, безопасность зависимостей, supply chain security]
+  - code: vulnerability_management
+    name: Управление уязвимостями
+    group: security
+    specs: [security, devops]
+    topic: network_security
+    synonyms: [vulnerability management, сканирование уязвимостей, vulnerability scanning, nessus, несус, openvas, qualys, maxpatrol, максpatrol, cve, cvss, патч-менеджмент, patch management, управление патчами]
+  - code: forensics
+    name: Форензика
+    group: security
+    specs: [security]
+    topic: incident_forensics
+    synonyms: [forensics, digital forensics, компьютерная криминалистика, расследование инцидентов, incident investigation, анализ логов безопасности, volatility, autopsy, dfir, threat hunting, тред хантинг]
+  - code: threat_modeling
+    name: Моделирование угроз
+    group: security
+    specs: [security, backend]
+    topic: secure_code_review
+    synonyms: [threat modeling, модель угроз, модель нарушителя, stride, dread, анализ рисков иб, risk assessment, оценка рисков, mitre att&ck, mitre attack, attack trees]
+  - code: iam
+    name: IAM
+    group: security
+    specs: [security, devops, backend]
+    topic: auth_protocols
+    synonyms: [identity and access management, управление доступом, управление идентификацией, pam, privileged access management, привилегированный доступ, mfa, 2fa, двухфакторная аутентификация, многофакторная аутентификация, saml, saml 2.0, федеративная аутентификация]
+  - code: malware_analysis
+    name: Анализ вредоносного ПО
+    group: security
+    specs: [security]
+    topic: incident_forensics
+    synonyms: [malware analysis, анализ малвари, анализ вредоносов, вредоносное по, sandbox analysis, ida pro, ghidra, гидра, x64dbg, radare2, реверс, реверс-инжиниринг, reverse engineering, реверс инжиниринг, дизассемблирование]
+  - code: ctf
+    name: CTF
+    group: security
+    specs: [security]
+    topic: web_vulns
+    synonyms: [capture the flag, ctf соревнования, ктф, сtf-соревнования, hackthebox, hack the box, tryhackme, стандофф, standoff, cybersecurity competitions]
+  - code: compliance_152fz
+    name: Комплаенс и 152-ФЗ
+    group: security
+    specs: [security, backend]
+    synonyms: [152-фз, 152 фз, фз-152, персональные данные, пдн, защита персональных данных, комплаенс, compliance, gdpr, iso 27001, исо 27001, pci dss, фстэк, фсб, кии, 187-фз, категорирование, аудит иб, security audit, политики безопасности, соответствие требованиям]
+  - code: hardening
+    name: Hardening и безопасная конфигурация
+    group: security
+    specs: [security, devops]
+    topic: network_security
+    synonyms: [hardening, харденинг, cis benchmarks, безопасная конфигурация, укрепление систем, selinux, apparmor, минимизация привилегий, least privilege, security baselines]
+  # ---------------------------------------------------------------------------
+  # Тестирование
+  # ---------------------------------------------------------------------------
+  - code: manual_testing
+    name: Ручное тестирование
+    group: testing
+    specs: [qa]
+    topic: test_design
+    synonyms: [manual testing, ручное тестирование, функциональное тестирование, functional testing, регрессионное тестирование, regression testing, smoke testing, смоук, дымовое тестирование, приёмочное тестирование, acceptance testing, uat, исследовательское тестирование, exploratory testing]
+  - code: test_design
+    name: Тест-дизайн
+    group: testing
+    specs: [qa]
+    topic: test_design
+    synonyms: [test design, тест дизайн, техники тест-дизайна, тест-кейсы, test cases, тест кейсы, чек-листы, чеклисты, checklists, классы эквивалентности, граничные значения, boundary values, pairwise, попарное тестирование, тестовая документация, тест-план, test plan]
+  - code: test_automation
+    name: Автоматизация тестирования
+    group: testing
+    specs: [qa, backend, frontend]
+    topic: automation_ui
+    synonyms: [test automation, автотесты, автотестирование, автоматизированное тестирование, automation testing, aqa, sdet, автоматизатор, e2e тесты, e2e, end-to-end testing, сквозное тестирование, автотесты ui, page object, page object pattern]
+  - code: selenium
+    name: Selenium
+    group: testing
+    specs: [qa]
+    topic: automation_ui
+    synonyms: [селениум, selenium webdriver, webdriver, вебдрайвер, selenide, селенид, selenium grid]
+  - code: playwright
+    name: Playwright
+    group: testing
+    specs: [qa, frontend]
+    topic: automation_ui
+    synonyms: [плейрайт, плеврайт, playwright test, playwright python]
+  - code: cypress
+    name: Cypress
+    group: testing
+    specs: [qa, frontend]
+    topic: automation_ui
+    synonyms: [сайпрес, сайпресс, cypress io, puppeteer, паппетир, webdriverio, wdio, testcafe, nightwatch]
+  - code: appium
+    name: Appium
+    group: testing
+    specs: [qa]
+    topic: automation_ui
+    synonyms: [аппиум, mobile automation, автоматизация мобильного тестирования, espresso, xcuitest, detox]
+  - code: pytest
+    name: pytest
+    group: testing
+    specs: [qa, backend, data_ml]
+    topic: testing
+    synonyms: [пайтест, py.test, unittest python, pytest fixtures, фикстуры pytest, hypothesis testing library, pytest-bdd]
+  - code: junit
+    name: JUnit
+    group: testing
+    specs: [qa, backend]
+    topic: testing
+    synonyms: [джунит, junit 5, junit5, testng, тестэнджи, mockito, мокито, assertj, hamcrest]
+  - code: jest
+    name: Jest
+    group: testing
+    specs: [frontend, qa, backend]
+    topic: testing
+    synonyms: [джест, vitest, витест, mocha, мокка, chai, jasmine, react testing library, testing library, enzyme]
+  - code: go_testing
+    name: Тестирование в Go
+    group: testing
+    specs: [backend]
+    topic: testing
+    synonyms: [go test, testify, тестифай, gomock, mockery, table driven tests, табличные тесты, testcontainers, ginkgo, gomega]
+  - code: cucumber
+    name: Cucumber
+    group: testing
+    specs: [qa, backend]
+    topic: test_design
+    synonyms: [кукумбер, cucumber jvm, behave, specflow, spec flow, godog]
+  - code: allure
+    name: Allure
+    group: testing
+    specs: [qa]
+    topic: ci_integration
+    synonyms: [аллюр, allure report, allure reports, отчёты allure, report portal, reportportal, тестовые отчёты, test reports]
+  - code: api_testing
+    name: Тестирование API
+    group: testing
+    specs: [qa, backend]
+    topic: automation_api
+    synonyms: [api testing, тестирование апи, rest assured, restassured, рест ашуред, karate, karate dsl, requests python, httpx, тестирование rest, тестирование grpc, контрактное тестирование, contract testing, pact, пакт]
+  - code: load_testing
+    name: Нагрузочное тестирование
+    group: testing
+    specs: [qa, backend, devops]
+    topic: automation_api
+    synonyms: [load testing, нагрузочное тестирование, нагрузочные тесты, performance testing, тестирование производительности, стресс-тестирование, stress testing, jmeter, джиметр, jmeter тесты, gatling, гатлинг, k6, locust, локуст, yandex tank, яндекс танк, vegeta, wrk, ab apache bench]
+  - code: test_management
+    name: Управление тестированием
+    group: testing
+    specs: [qa]
+    topic: bug_analysis
+    synonyms: [test management, testrail, тестрейл, zephyr, зефир, qase, test it, testit, allure testops, xray jira, тест-менеджмент, управление тестами, баг-трекинг, bug tracking, баг репорты, bug reports, дефекты, defects, жизненный цикл бага]
+  - code: test_data
+    name: Тестовые данные и окружения
+    group: testing
+    specs: [qa, backend]
+    topic: test_data
+    synonyms: [test data, тестовые данные, генерация тестовых данных, faker, фейкер, тестовые окружения, test environments, стенды, тестовые стенды, моки, mocks, mocking, стабы, stubs, wiremock, mockserver, заглушки]
+  - code: mobile_testing
+    name: Мобильное тестирование
+    group: testing
+    specs: [qa]
+    topic: test_design
+    synonyms: [mobile testing, тестирование мобильных приложений, тестирование android, тестирование ios, android studio emulator, эмуляторы, charles proxy, charles, проксирование трафика, fiddler]
+  # ---------------------------------------------------------------------------
+  # Фронтенд
+  # ---------------------------------------------------------------------------
+  - code: html
+    name: HTML
+    group: frontend
+    specs: [frontend]
+    topic: css_layout
+    synonyms: [html5, хтмл, html 5, семантическая вёрстка, semantic html, вёрстка, верстка, разметка]
+  - code: css
+    name: CSS
+    group: frontend
+    specs: [frontend]
+    topic: css_layout
+    synonyms: [css3, цсс, css 3, flexbox, флексбокс, css grid, grid layout, анимации css, css animations, css modules, постcss, postcss, кроссбраузерная вёрстка, кроссбраузерность, bem, бэм]
+  - code: sass
+    name: Sass / SCSS
+    group: frontend
+    specs: [frontend]
+    topic: css_layout
+    synonyms: [sass, scss, сасс, скасс, less, лесс, stylus, препроцессоры css, css preprocessors]
+  - code: tailwind
+    name: Tailwind CSS
+    group: frontend
+    specs: [frontend]
+    topic: css_layout
+    synonyms: [tailwind, тейлвинд, тайлвинд, tailwindcss, utility-first css, daisyui]
+  - code: bootstrap
+    name: Bootstrap
+    group: frontend
+    specs: [frontend]
+    topic: css_layout
+    synonyms: [бутстрап, bootstrap 5, bulma, foundation css]
+  - code: ui_libraries
+    name: UI-библиотеки компонентов
+    group: frontend
+    specs: [frontend]
+    topic: react_state
+    synonyms: [material ui, mui, ant design, antd, антд, chakra ui, shadcn, shadcn/ui, radix ui, radix, mantine, element plus, vuetify, primevue, headless ui, библиотеки компонентов, design system, дизайн-система, дизайн система]
+  - code: styled_components
+    name: CSS-in-JS
+    group: frontend
+    specs: [frontend]
+    topic: css_layout
+    synonyms: [styled components, styled-components, стайлед компонентс, emotion css, css in js, css-in-js, vanilla extract, linaria]
+  - code: react
+    name: React
+    group: frontend
+    specs: [frontend]
+    topic: react_state
+    synonyms: [реакт, react.js, reactjs, react js, react 18, react 19, react hooks, хуки, hooks, jsx, tsx]
+  - code: redux
+    name: Redux
+    group: frontend
+    specs: [frontend]
+    topic: react_state
+    synonyms: [редакс, редукс, redux toolkit, rtk, rtk query, redux saga, redux-saga, redux thunk, ngrx, vuex]
+  - code: state_management
+    name: Управление состоянием
+    group: frontend
+    specs: [frontend]
+    topic: react_state
+    synonyms: [state management, стейт менеджмент, менеджмент состояния, mobx, мобикс, mobx state tree, zustand, зустанд, jotai, recoil, effector, эффектор, xstate, pinia, пиниа, signals, сигналы]
+  - code: react_query
+    name: TanStack Query
+    group: frontend
+    specs: [frontend]
+    topic: react_state
+    synonyms: [react query, реакт квери, tanstack, tanstack query, swr, data fetching, запросы данных, tanstack router, tanstack table]
+  - code: nextjs
+    name: Next.js
+    group: frontend
+    specs: [frontend]
+    topic: rendering_perf
+    synonyms: [next, некст, nextjs, next js, ssr, server side rendering, серверный рендеринг, ssg, static site generation, isr, app router, server components, remix, astro]
+  - code: vue
+    name: Vue.js
+    group: frontend
+    specs: [frontend]
+    topic: react_state
+    synonyms: [vue, вью, vuejs, vue js, vue 3, vue3, composition api, composition-api, options api, nuxt, nuxt.js, nuxtjs, накст, nuxt 3]
+  - code: angular
+    name: Angular
+    group: frontend
+    specs: [frontend]
+    topic: react_state
+    synonyms: [ангуляр, angular 17, angular 18, angularjs, angular js, rxjs, рxjs, реактивное программирование, reactive programming, observables, ngrx store]
+  - code: svelte
+    name: Svelte
+    group: frontend
+    specs: [frontend]
+    topic: react_state
+    synonyms: [свелт, свельт, sveltekit, svelte kit, solidjs, solid js, solid.js, qwik, alpine js, alpinejs, htmx]
+  - code: webpack
+    name: Webpack
+    group: frontend
+    specs: [frontend]
+    topic: bundling
+    synonyms: [вебпак, вебпэк, webpack 5, babel, бабель, rollup, роллап, parcel, парсел, esbuild, turbopack, бандлеры, bundlers, сборка фронтенда, module bundler]
+  - code: vite
+    name: Vite
+    group: frontend
+    specs: [frontend]
+    topic: bundling
+    synonyms: [вит, вите, vitejs, vite js, vite build]
+  - code: web_accessibility
+    name: Доступность (a11y)
+    group: frontend
+    specs: [frontend, qa]
+    topic: accessibility
+    synonyms: [accessibility, a11y, доступность, веб-доступность, wcag, aria, wai-aria, aria атрибуты, скринридеры, screen readers, screen reader, инклюзивный дизайн, клавиатурная навигация, keyboard navigation, гост р 52872]
+  - code: responsive_design
+    name: Адаптивная вёрстка
+    group: frontend
+    specs: [frontend]
+    topic: css_layout
+    synonyms: [responsive design, responsive, адаптивная верстка, адаптив, адаптивный дизайн, mobile first, mobile-first, media queries, медиа-запросы, медиазапросы, pixel perfect, пиксель перфект, кроссплатформенная вёрстка]
+  - code: web_performance
+    name: Производительность веба
+    group: frontend
+    specs: [frontend]
+    topic: rendering_perf
+    synonyms: [web performance, web vitals, core web vitals, lcp, cls, fid, inp, lighthouse, лайтхаус, оптимизация фронтенда, оптимизация загрузки, lazy loading, ленивая загрузка, code splitting, tree shaking, bundle size, оптимизация рендеринга, виртуализация списков]
+  - code: browser_api
+    name: Браузерные API и DOM
+    group: frontend
+    specs: [frontend]
+    topic: browser_api
+    synonyms: [dom, дом, browser api, web api, браузерные апи, event loop, ивент луп, fetch api, fetch, xhr, ajax, аякс, localstorage, local storage, indexeddb, service worker, service workers, сервис воркеры, web workers, веб воркеры, intersection observer, canvas, canvas api, webgl, svg анимации, history api, cors, корс]
+  - code: pwa
+    name: PWA
+    group: frontend
+    specs: [frontend]
+    topic: browser_api
+    synonyms: [progressive web app, progressive web apps, прогрессивные веб-приложения, пва, offline first, web app manifest, push notifications web]
+  - code: webassembly
+    name: WebAssembly
+    group: frontend
+    specs: [frontend, backend]
+    topic: rendering_perf
+    synonyms: [wasm, васм, web assembly, emscripten, wasi, tinygo wasm]
+  - code: d3
+    name: D3.js и графики
+    group: frontend
+    specs: [frontend, data_ml]
+    synonyms: [d3, д3, d3js, d3 js, chart.js, chartjs, чарт джс, recharts, речартс, echarts, apache echarts, highcharts, хайчартс, nivo, визуализация на фронтенде, графики на js]
+  - code: electron
+    name: Electron
+    group: frontend
+    specs: [frontend]
+    synonyms: [электрон, electron js, electronjs, tauri, таури, десктопные приложения на js, nw.js]
+  - code: micro_frontends
+    name: Микрофронтенды
+    group: frontend
+    specs: [frontend]
+    topic: bundling
+    synonyms: [micro frontends, microfrontends, микрофронты, микро-фронтенды, module federation, модульная федерация, single-spa, single spa, монорепозиторий, monorepo, монорепо, nx, turborepo, lerna]
+  - code: ui_ux
+    name: UI/UX-дизайн
+    group: frontend
+    specs: [frontend]
+    topic: accessibility
+    synonyms: [ui/ux, ui ux, uiux, ux, ui, юикс, юай, юзабилити, usability, пользовательский опыт, user experience, прототипирование, prototyping, прототипы, wireframes, вайрфреймы, user flow, cjm, customer journey map, ux-исследования, ux research, дизайн интерфейсов, interface design, продуктовый дизайн, product design]
+  - code: i18n
+    name: Интернационализация
+    group: frontend
+    specs: [frontend, backend]
+    synonyms: [i18n, l10n, интернационализация, локализация, localization, мультиязычность, переводы интерфейса, react-intl, i18next, formatjs, icu messageformat]
+  # ---------------------------------------------------------------------------
+  # Мобильная разработка
+  # ---------------------------------------------------------------------------
+  - code: android
+    name: Android
+    group: mobile
+    specs: [frontend]
+    synonyms: [андроид, android sdk, android разработка, android development, android studio, aosp, android ndk]
+  - code: ios
+    name: iOS
+    group: mobile
+    specs: [frontend]
+    synonyms: [айос, иос, ios разработка, ios development, xcode, икскод, uikit, cocoapods, cocoa touch, swift package manager, spm]
+  - code: react_native
+    name: React Native
+    group: mobile
+    specs: [frontend]
+    synonyms: [rn, реакт нейтив, реакт натив, react-native, expo, экспо, hermes]
+  - code: flutter
+    name: Flutter
+    group: mobile
+    specs: [frontend]
+    synonyms: [флаттер, флатер, flutter dart, flutter web, riverpod, bloc flutter]
+  - code: swiftui
+    name: SwiftUI
+    group: mobile
+    specs: [frontend]
+    synonyms: [swift ui, свифтюай, combine, combine framework]
+  - code: jetpack_compose
+    name: Jetpack Compose
+    group: mobile
+    specs: [frontend]
+    synonyms: [jetpack, джетпак компоуз, android compose, compose multiplatform, compose ui]
+  - code: kotlin_multiplatform
+    name: Kotlin Multiplatform
+    group: mobile
+    specs: [frontend, backend]
+    synonyms: [kmp, kmm, kotlin multiplatform mobile, мультиплатформа kotlin, кроссплатформенная разработка, cross-platform development, cross platform, кроссплатформа]
+  - code: mobile_ci
+    name: Мобильная сборка и релизы
+    group: mobile
+    specs: [frontend, devops]
+    topic: ci_cd
+    synonyms: [fastlane, фастлейн, app store, аппстор, google play, гугл плей, rustore, рустор, публикация приложений, релизы мобильных приложений, codemagic, bitrise, testflight, firebase app distribution]
+  # ---------------------------------------------------------------------------
+  # Гибкие навыки
+  # ---------------------------------------------------------------------------
+  - code: communication
+    name: Коммуникация
+    group: soft
+    specs: [common]
+    synonyms: [коммуникабельность, коммуникативные навыки, communication skills, communication, общение, навыки общения, умение договариваться, деловая переписка, письменная коммуникация]
+  - code: teamwork
+    name: Работа в команде
+    group: soft
+    specs: [common]
+    synonyms: [teamwork, командная работа, работа в команде, командный игрок, team player, кросс-функциональные команды, cross-functional teams, сотрудничество, collaboration]
+  - code: mentoring
+    name: Менторство
+    group: soft
+    specs: [common]
+    synonyms: [mentoring, менторинг, наставничество, mentorship, обучение коллег, онбординг джунов, онбординг новичков, коучинг, coaching, развитие команды]
+  - code: leadership
+    name: Лидерство и управление командой
+    group: soft
+    specs: [common]
+    synonyms: [leadership, лидерство, управление командой, team management, team lead, тимлид, тимлидство, техлид, tech lead, руководство разработкой, engineering management, people management, управление людьми, найм, hiring, проведение собеседований, interviewing, 1:1, one on one, делегирование]
+  - code: project_management
+    name: Управление проектами
+    group: soft
+    specs: [common]
+    synonyms: [project management, проектный менеджмент, управление проектами, планирование, planning, оценка задач, estimation, оценка сроков, roadmap, роадмап, дорожная карта, управление рисками, risk management, pmp, prince2, ms project, waterfall, каскадная модель]
+  - code: product_thinking
+    name: Продуктовое мышление
+    group: soft
+    specs: [common]
+    synonyms: [product thinking, продуктовое мышление, продуктовый подход, ориентация на результат, result oriented, бизнес-ориентированность, понимание бизнеса, business acumen, метрики продукта, product metrics, unit-экономика, unit economics, customer development, custdev, кастдев, клиентоориентированность, customer focus]
+  - code: time_management
+    name: Тайм-менеджмент
+    group: soft
+    specs: [common]
+    synonyms: [time management, управление временем, самоорганизация, self-organization, self organization, организованность, приоритизация, prioritization, пунктуальность, соблюдение сроков, дедлайны, deadlines, многозадачность, multitasking]
+  - code: problem_solving
+    name: Решение проблем
+    group: soft
+    specs: [common]
+    synonyms: [problem solving, аналитическое мышление, analytical thinking, критическое мышление, critical thinking, системное мышление, systems thinking, аналитический склад ума, умение решать проблемы, troubleshooting, траблшутинг, диагностика проблем, поиск причин, root cause analysis, rca, дебаггинг, debugging, отладка]
+  - code: learning_agility
+    name: Обучаемость
+    group: soft
+    specs: [common]
+    synonyms: [обучаемость, быстрая обучаемость, learning agility, самообучение, self-learning, саморазвитие, self-development, любознательность, curiosity, адаптивность, adaptability, гибкость, flexibility, открытость новому]
+  - code: responsibility
+    name: Ответственность и автономность
+    group: soft
+    specs: [common]
+    synonyms: [ответственность, responsibility, accountability, ownership, самостоятельность, autonomy, автономность, инициативность, proactivity, проактивность, initiative, внимательность к деталям, attention to detail, внимательность, аккуратность, добросовестность]
+  - code: stress_resistance
+    name: Стрессоустойчивость
+    group: soft
+    specs: [common]
+    synonyms: [стрессоустойчивость, stress resistance, stress tolerance, работа под давлением, working under pressure, устойчивость к стрессу, эмоциональный интеллект, emotional intelligence, eq, работа в условиях неопределённости, работа в условиях неопределенности]
+  - code: presentation_skills
+    name: Презентации и публичные выступления
+    group: soft
+    specs: [common]
+    synonyms: [presentation skills, презентации, публичные выступления, public speaking, выступления, доклады, спикер, конференции, митапы, meetups, проведение демо, демонстрация результатов, storytelling, сторителлинг, защита решений]
+  - code: negotiation
+    name: Переговоры и работа со стейкхолдерами
+    group: soft
+    specs: [common]
+    synonyms: [negotiation, переговоры, ведение переговоров, работа со стейкхолдерами, stakeholder management, управление ожиданиями, expectation management, работа с заказчиком, взаимодействие с бизнесом, работа с клиентами, client communication, конфликтология, разрешение конфликтов, conflict resolution]
+  - code: english
+    name: Английский язык
+    group: soft
+    specs: [common]
+    synonyms: [английский, english, english b1, english b2, english c1, english c2, b1, b2, c1, c2, intermediate, upper intermediate, upper-intermediate, advanced, fluent english, технический английский, technical english, английский технический, чтение документации на английском, разговорный английский]
+  - code: other_languages
+    name: Другие иностранные языки
+    group: soft
+    specs: [common]
+    synonyms: [немецкий, german, deutsch, французский, french, китайский, chinese, испанский, spanish, итальянский, italian, японский, japanese, турецкий, turkish, арабский, arabic, иностранные языки, foreign languages]

@@ -1,0 +1,180 @@
+# go-task (https://taskfile.dev). Установка: go install github.com/go-task/task/v3/cmd/task@latest
+version: '3'
+
+dotenv: ['.env']
+
+vars:
+  MIGRATIONS_DIR: internal/storage/postgres/migrations
+  VERSION:
+    sh: git describe --tags --always --dirty 2>/dev/null || echo dev
+
+tasks:
+  default:
+    desc: Список задач
+    cmds:
+      - task --list
+    silent: true
+
+  dev:
+    desc: API с горячей перезагрузкой (air)
+    cmds:
+      - air
+
+  run:
+    desc: Запуск API без горячей перезагрузки
+    cmds:
+      - go run ./cmd/api
+
+  doctor:
+    desc: Проверка окружения — Go, Node, .env, база данных, порт, сборка фронтенда
+    cmds:
+      - go run ./cmd/doctor
+
+  fspmock:
+    desc: Эмулятор ФСП ID (Keycloak-совместимый OIDC) и реестра достижений на :8090
+    cmds:
+      - go run ./cmd/fspmock
+
+  build:
+    desc: Сборка бинарника API в bin/
+    cmds:
+      - go build -trimpath -ldflags "-s -w -X main.version={{.VERSION}}" -o bin/api{{exeExt}} ./cmd/api
+
+  test:
+    desc: Юнит- и интеграционные тесты (интеграционные используют TEST_DATABASE_URL)
+    cmds:
+      - go test ./... -count=1
+
+  test:cover:
+    desc: Тесты с отчётом покрытия
+    cmds:
+      - go test ./... -count=1 -coverprofile=coverage.out -covermode=atomic
+      - go tool cover -func=coverage.out | tail -n 1
+
+  vet:
+    desc: go vet
+    cmds:
+      - go vet ./...
+
+  lint:
+    desc: golangci-lint
+    cmds:
+      - golangci-lint run ./...
+
+  fmt:
+    desc: Форматирование (gofmt + goimports через golangci-lint)
+    cmds:
+      - golangci-lint fmt ./...
+
+  tidy:
+    desc: go mod tidy
+    cmds:
+      - go mod tidy
+
+  migrate:up:
+    desc: Применить миграции (goose) к DATABASE_URL
+    cmds:
+      - goose -dir {{.MIGRATIONS_DIR}} postgres "$DATABASE_URL" up
+
+  migrate:status:
+    desc: Статус миграций
+    cmds:
+      - goose -dir {{.MIGRATIONS_DIR}} postgres "$DATABASE_URL" status
+
+  migrate:new:
+    desc: Создать миграцию. Пример — task migrate:new NAME=add_users
+    cmds:
+      - goose -dir {{.MIGRATIONS_DIR}} create {{.NAME}} sql
+    requires:
+      vars: [NAME]
+
+  sqlc:
+    desc: Сгенерировать типобезопасный слой запросов (sqlc)
+    cmds:
+      - sqlc generate
+
+  db:reset:
+    desc: Пересоздать базу fsp (ТОЛЬКО локально; удаляет данные)
+    cmds:
+      - psql "$DATABASE_URL" -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
+      - task: migrate:up
+
+  seed:
+    desc: Заполнить базу демо-аккаунтами и синтетикой (300 кандидатов с реальными тест-сессиями)
+    cmds:
+      - go run ./cmd/seed -reset -run -candidates {{.N | default 300}}
+
+  seed:reset:
+    desc: Удалить сид-данные (@seed.fsp.local)
+    cmds:
+      - go run ./cmd/seed -reset
+
+  validate:
+    desc: Валидация механик — отчёт и графики в docs/validation
+    cmds:
+      - go run ./cmd/validate -out docs/validation
+
+  validate:load:
+    desc: То же плюс нагрузочный раздел по запущенному стенду с сидом
+    cmds:
+      - go run ./cmd/validate -out docs/validation -load http://127.0.0.1:8080
+
+  openapi:export:
+    desc: Выгрузить OpenAPI в docs/api/openapi.yaml (без запуска сервера и БД)
+    cmds:
+      - mkdir -p docs/api
+      - go run ./cmd/api -openapi > docs/api/openapi.yaml
+
+  web:install:
+    desc: Установить зависимости фронтенда
+    dir: web
+    cmds:
+      - npm install --no-audit --no-fund
+
+  web:gen:
+    desc: Сгенерировать типы API для фронтенда из docs/api/openapi.yaml
+    dir: web
+    cmds:
+      - npm run gen:api
+
+  web:dev:
+    desc: Dev-сервер фронтенда (Vite, :5173, прокси /api → :8080)
+    dir: web
+    cmds:
+      - npm run dev
+
+  web:build:
+    desc: Собрать фронтенд в web/dist (API раздаёт его на /)
+    dir: web
+    cmds:
+      - npm run build
+
+  e2e:install:
+    desc: Установить Chromium для Playwright
+    dir: web
+    cmds:
+      - npx playwright install chromium
+
+  e2e:
+    desc: E2E-тесты (Playwright) — стенд на базе fsp_platform_e2e пересоздаётся с сидом
+    dir: web
+    cmds:
+      - npm run build
+      - npx playwright test
+
+  e2e:demo:
+    desc: Запись демо-видео главных сценариев (web/test-results/**/video.webm)
+    dir: web
+    env:
+      E2E_VIDEO: "1"
+    cmds:
+      - npm run build
+      - npx playwright test e2e/employer-flow.spec.ts e2e/candidate.spec.ts
+
+  check:
+    desc: Всё сразу — fmt, vet, lint, test
+    cmds:
+      - task: fmt
+      - task: vet
+      - task: lint
+      - task: test
